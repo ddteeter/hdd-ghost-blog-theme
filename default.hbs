@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        {{! Document settings and metadata }}
+        <title>{{meta_title}}</title>
+        <meta charset="utf-8" />
+        <meta name="designer" content="Hayden Bleasel" />
+        <meta name="rating" content="general" />
+        <meta name="keywords" content="ghost, blog, {{meta_title}}" />
+
+        {{! iOS, Android and Windows stuff }}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileImage" content="{{asset 'images/windows-tile.png'}}" />
+        <meta name="msapplication-TileColor" content="#262A2D" />
+
+        {{! Robots and Viewport }}
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        {{! OpenGraph for Facebook }}
+        <meta property="og:title" content="{{meta_title}}" />
+        <meta property="og:locale" content="en_US" />
+
+        {{! Twitter Card }}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="{{meta_title}}" />
+
+        {{! Prerendering and Prefetching }}
+        {{#if @blog.cover}}
+            <link rel="prerender" href="{{@blog.cover}}" />
+            <link rel="prefetch" href="{{@blog.cover}}" />
+        {{/if}}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com/" />
+
+        {{! Scripts and Stylesheets }}
+        <link rel="stylesheet" href="{{asset 'css/normalize.css'}}" />
+        <link rel="stylesheet" href="{{asset 'css/basics.css'}}" />
+        <link rel="stylesheet" href="{{asset 'css/animate.css'}}" />
+        <link rel="stylesheet" href="{{asset 'css/highlight.css'}}" />
+        <link rel="stylesheet" href="{{asset 'css/phantom.css'}}" />
+        <script src="{{asset 'js/html5shiv-printshiv.js'}}"></script>
+        <script src="{{asset 'js/respond.js'}}"></script>
+
+        {{! Favicon }}
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/assets/images/favicon/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/assets/images/favicon/manifest.json">
+        <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="/assets/images/favicon/mstile-144x144.png">
+        <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        {{! Page-Specific Metadata }}
+        {{{block "meta"}}}
+
+        {{ghost_head}}
+
+    </head>
+    <body class="{{body_class}}">
+        <nav class="animated fadeIn navigation">
+            <a href="{{@blog.url}}" class="brand">
+                <span class="logoWide">
+                    <img src="{{asset 'images/logo.svg'}}" alt="{{@blog.title}}" />
+                </span>
+                <span class="logoNarrow">
+                    <img src="{{asset 'images/logo-shortened.svg'}}" alt="{{@blog.title}}" />
+                </span>
+            </a>
+            {{navigation}}
+        </nav>
+        <div class="main">
+            {{{body}}}
+        </div>
+        <footer class="animated fadeIn" id="footer">
+            <div class="container text-center">
+                <p class="copyright"><span>Made by {{@blog.title}}.</span> <span>Powered by Ghost.</span></p>
+                <a href="https://github.com/haydenbleasel/phantom" class="theme">Theme: Phantom by Hayden Bleasel</a>
+            </div>
+        </footer>
+
+        {{ghost_foot}}
+
+        {{! Deferred scripts }}
+        <script src="{{asset 'js/jquery.min.js'}}"></script>
+        <script src="{{asset 'js/fastclick.js'}}"></script>
+        <script src="{{asset 'js/stellar.js'}}"></script>
+        <script src="{{asset 'js/highlight.js'}}"></script>
+        <script src="{{asset 'js/phantom.js'}}"></script>
+        <script src="{{asset 'js/jquery.timeago.min.js'}}"></script>
+
+        <script>jQuery(document).ready(function() { jQuery("time.timeago").timeago(); });</script>
+
+    </body>
+</html>
