@@ -1,3 +1,3 @@
 <div class="share">
-    Share this on <a id="twitter" href="http://twitter.com/share?text={{encode title}}&amp;url={{@blog.url}}{{url}}">Twitter</a>, <a id="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{@blog.url}}{{url}}">Facebook</a> or <a id="google-plus" href="https://plus.google.com/share?url={{@blog.url}}{{url}}">Google+</a>.
+    Share this on <a id="twitter" href="http://twitter.com/share?text={{#if tag}}{{tag.description}}{{else}}{{encode title}}{{/if}}&amp;url={{@blog.url}}{{url}}">Twitter</a>, <a id="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{@blog.url}}{{url}}">Facebook</a> or <a id="google-plus" href="https://plus.google.com/share?url={{@blog.url}}{{url}}">Google+</a>.
 </div>
